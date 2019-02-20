@@ -1,0 +1,5 @@
+<root>
+    <item name='javafx.event.EventHandler void handle(T)'>
+        <annotation name='org.jetbrains.annotations.NonBlocking'/>
+    </item>
+</root>
