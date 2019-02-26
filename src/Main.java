@@ -45,8 +45,8 @@ public class Main extends Application  {
 
     //Edition colomn
     TableColumn<Product, String> editionColumn = new TableColumn<>("Издание");
-    authorColumn.setMinWidth(200);
-    authorColumn.setCellValueFactory(new PropertyValueFactory<>("edition"));
+    editionColumn.setMinWidth(200);
+    editionColumn.setCellValueFactory(new PropertyValueFactory<>("edition"));
 
     //quantity colomn
     TableColumn<Product, String> quantityColumn = new TableColumn<>("Количество");
@@ -74,15 +74,16 @@ public class Main extends Application  {
     quantityInput.setPromptText("Количество");
     quantityInput.setMinWidth(100);
 
-    //Button
+
+    //Кнопка "Добавить"
     Button addButton = new Button("Добавить");
     addButton.setOnAction(e -> addButtonClicked ());
     Button deleteButton = new Button ("Удалить");
-    //deleteButton.setOnAction (e -> deleteButtonClicked());
+    deleteButton.setOnAction (e -> deleteButtonClicked());
     HBox hBox = new HBox();
     hBox.setPadding(new Insets(10,10,10,10));
     hBox.setSpacing(10);
-    hBox.getChildren().addAll(nameInput, authorInput, editionInput, quantityInput,addButton,deleteButton);
+    hBox.getChildren().addAll(nameInput, authorInput, editionInput, quantityInput, addButton,deleteButton);
 
 
 
@@ -99,7 +100,7 @@ public class Main extends Application  {
     window.setScene(scene);
     window.show();
 }
-     //Add button clicked
+     //Нажитие  кнопки "Добавить"
     public void addButtonClicked() {
         Product product = new Product();
         product.setName(nameInput.getText());
@@ -113,7 +114,7 @@ public class Main extends Application  {
         quantityInput.clear();
     }
 
-       //Delete button clicked
+       //Удаление кнопки "Удалить"
 
         public void deleteButtonClicked() {
             ObservableList<Product> productSelected, allProducts;
@@ -126,7 +127,7 @@ public class Main extends Application  {
      public ObservableList<Product> getProduct (){
      ObservableList<Product> products = FXCollections.observableArrayList();
      products.add(new Product("Война и мир", "Толстой", "Нива", 20));
-     products.add(new Product("Над пропастью во ржи", "Джером", "Ливия", 5));
+     products.add(new Product("Над пропастью во ржи", "Селинджер", "Ливия", 5));
      products.add(new Product("Пеппи Длинный чулок", "Лингрен","Орфей", 26));
      products.add(new Product("Путь к звездам", "Циолковский","Нива", 2));
      products.add(new Product("Цветы для Эрджернона", "Киз", "Орфей", 5));
